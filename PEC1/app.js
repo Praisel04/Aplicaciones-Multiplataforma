@@ -147,6 +147,7 @@ function saveTasks() {
   }
 }
 
+
 function loadTasks() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
