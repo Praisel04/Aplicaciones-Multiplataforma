@@ -64,6 +64,11 @@ form.addEventListener('submit', (e) => {
   state.tasks.push(task);
   renderTask(task);
   updateTaskCount();
+  
+  // Guardar en localStorage 
+  saveTasks();
+  if (typeof updateTaskCount === 'function') updateTaskCount();
+
 
   // Limpieza + UX
   taskInput.value = '';
@@ -103,6 +108,8 @@ function toggleComplete(id, li, btn) {
   btn.setAttribute('aria-label', task.completed ? 'Mark task as pending' : 'Mark task as completed');
 
   announce(task.completed ? 'Tarea marcada como completada.' : 'Tarea marcada como pendiente.');
+  saveTasks();
+
 }
 
 // Eliminar tarea
@@ -118,10 +125,48 @@ function deleteTask(id, li) {
 
   li.remove();
   updateTaskCount();
+  saveTasks();
+  if (typeof updateTaskCount === 'function') updateTaskCount();
+
   announce('Tarea eliminada.');
 
   // Devolver foco de forma predecible
   if (nextFocus) nextFocus.focus();
 }
 
+
+// ALMACENAMIENTO LOCAL (localStorage)
+
+const STORAGE_KEY = 'task-manager:v1';
+
+function saveTasks() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.tasks));
+  } catch (e) {
+    console.error('No se pudieron guardar las tareas', e);
+  }
+}
+
+
+function loadTasks() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    state.tasks = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    console.warn('JSON de tareas corrupto; reseteando.', e);
+    state.tasks = [];
+  }
+}
+
+// Vacia la UL y vuelve a pintar todas las tareas desde state
+function renderAll() {
+  taskList.innerHTML = '';
+  state.tasks.forEach(renderTask);
+  if (typeof updateTaskCount === 'function') updateTaskCount();
+}
+
+
+// Alimentamos el almacenamiento en cada cambio de estado
+loadTasks();
+renderAll();
 
