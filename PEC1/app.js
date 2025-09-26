@@ -12,6 +12,18 @@ const state = {
     tasks: []
 };
 
+// Selecciona el nodo del contador
+const taskCountEl = document.getElementById('task-count');
+
+// Función para refrescar el número (tareas actuales)
+function updateTaskCount(){
+  if (taskCountEl) taskCountEl.textContent = String(state.tasks.length);
+}
+
+// Llama al iniciar
+updateTaskCount();
+
+
 //UTILIDADES
 function uid(){
     return crypto.randomUUID ? crypto.randomUUID(): String(Date.now() + Math.random());
@@ -22,7 +34,7 @@ function announce(msg){
     feedback.textContent = msg;
 }
 
-//RENDER DE UNA TAREA (CLONAR E INSERTAR)
+//RENDER DE UNA TAREA 
 function renderTask(task){
     const clone = listTemplate.content.cloneNode(true);
     const li = clone.querySelector('li');
@@ -51,6 +63,7 @@ form.addEventListener('submit', (e) => {
   const task = { id: uid(), text: raw, completed: false };
   state.tasks.push(task);
   renderTask(task);
+  updateTaskCount();
 
   // Limpieza + UX
   taskInput.value = '';
@@ -97,15 +110,18 @@ function deleteTask(id, li) {
   // Quitar del estado
   state.tasks = state.tasks.filter(t => t.id !== id);
 
-  // Gestionar foco antes de eliminar (mejor UX)
+  // Gestionar foco antes de eliminar
   const nextFocus =
     (li.nextElementSibling && li.nextElementSibling.querySelector('button')) ||
     (li.previousElementSibling && li.previousElementSibling.querySelector('button')) ||
     taskInput;
 
   li.remove();
+  updateTaskCount();
   announce('Tarea eliminada.');
 
   // Devolver foco de forma predecible
   if (nextFocus) nextFocus.focus();
 }
+
+
