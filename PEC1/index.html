@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Task Manager App</h1>
+  </header>
+
+  <main>
+    <div class="task-form">
+      <form action="">
+        <label for="new-task" class="visually-hidden">New task</label>
+        <input type="text" id="new-task" name="task" placeholder="Enter a new task here." required autocomplete="off"/>
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
+
+    <p id="feedback" role="status" aria-live="polite" class="visually-hidden"></p>
+
+    <h2>Task List</h2>
+    <div class="task-list">
+      <ul id="tasks" aria-live="polite" aria-relevant="additions removals"></ul>
+    </div>
+
+    <template id="task-template">
+      <li class="task-item">
+        <span class="task-text"></span>
+        <button type="button" class="complete-btn" aria-label="Mark task as completed">✓</button>
+        <button type="button" class="delete-btn" aria-label="Delete task">🗑</button>
+      </li>
+    </template>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

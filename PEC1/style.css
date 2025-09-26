@@ -1,0 +1,183 @@
+/* ====== Fuente (opcional) ====== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ====== Reset suave ====== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+img, svg { display: block; max-width: 100%; }
+
+/* ====== Tema ====== */
+:root{
+  --accent: #2563eb;           /* azul principal */
+  --accent-2: #1d4ed8;
+  --success: #22c55e;
+  --danger: #dc2626;
+  --text: #0f172a;
+  --muted: #64748b;
+  --bg: #f6f8ff;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --ring: #93c5fd;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --accent:#60a5fa; --accent-2:#3b82f6;
+    --success:#34d399; --danger:#f87171;
+    --text:#e5e7eb; --muted:#94a3b8;
+    --bg:#0b1220; --card:#0f172a; --border:#1f2937; --ring:#2563eb;
+  }
+}
+
+/* ====== Layout base ====== */
+html, body { height: 100%; }
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 600px at 0% 0%, #eef2ff 0%, transparent 60%),
+    radial-gradient(1000px 600px at 100% 0%, #e0f2fe 0%, transparent 60%),
+    var(--bg);
+  line-height: 1.5;
+  padding: 2rem 1rem 3rem;
+}
+.app{ max-width: 760px; margin: 0 auto; display: grid; gap: 1rem; }
+header{ max-width: 760px; margin: 0 auto 1rem; }
+header h1{ font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); font-weight: 700; letter-spacing: -0.02em; }
+
+/* ====== Tarjetas ====== */
+.panel{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 12px 28px rgba(2,6,23,.06);
+}
+
+/* ====== Formulario ====== */
+.task-form form{ display: flex; gap: .6rem; }
+.task-form input[type="text"]{
+  flex: 1;
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 10px;
+  padding: .7rem .9rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.task-form input[type="text"]:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring) 45%, transparent);
+}
+.task-form button[type="submit"]{
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: .7rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .05s ease, filter .15s ease;
+}
+.task-form button[type="submit"]:hover{ filter: brightness(1.05); }
+.task-form button[type="submit"]:active{ transform: translateY(1px); }
+
+/* ====== Lista ====== */
+.task-list h2{ font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+.task-list ul{ list-style: none; display: grid; gap: .5rem; }
+
+/* Estado vacío de la lista */
+#tasks:empty::before{
+  content: "No tasks yet — add your first task ✨";
+  display: block;
+  color: var(--muted);
+  font-size: .95rem;
+  padding: .5rem .25rem;
+}
+
+/* Ítems */
+.task-list li{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: .5rem;
+  align-items: center;
+  padding: .6rem .7rem;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 90%, #fff 10%);
+  border-radius: 12px;
+  transition: background .15s ease, transform .05s ease, border-color .15s ease;
+}
+.task-list li:hover{
+  background: color-mix(in srgb, var(--card) 80%, #fff 20%);
+  border-color: color-mix(in srgb, var(--border) 70%, var(--accent) 30%);
+}
+
+/* Texto y estado completado */
+.task-text{
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.task-item.completed .task-text,
+li.completed .task-text{
+  text-decoration: line-through;
+  opacity: .65;
+  color: var(--muted);
+}
+
+/* Botones de acción */
+button{
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: .45rem .7rem;
+  font-weight: 600;
+}
+.complete-btn, .delete-btn{
+  width: 38px; height: 38px; display: grid; place-items: center;
+  border: 1px solid var(--border);
+  background: #fff0;
+  transition: background .15s, border-color .15s, transform .05s;
+}
+.complete-btn{ color: var(--accent-2); }
+.complete-btn:hover{ background: color-mix(in srgb, var(--accent) 12%, transparent); border-color: color-mix(in srgb, var(--accent) 40%, var(--border) 60%); }
+.complete-btn[aria-pressed="true"], .task-item.completed .complete-btn, li.completed .complete-btn{
+  background: color-mix(in srgb, var(--success) 18%, transparent);
+  border-color: color-mix(in srgb, var(--success) 40%, var(--border) 60%);
+  color: var(--success);
+}
+
+.delete-btn{ color: var(--danger); margin-left: .25rem; }
+.delete-btn:hover{ background: color-mix(in srgb, var(--danger) 12%, transparent); border-color: color-mix(in srgb, var(--danger) 40%, var(--border) 60%); }
+.delete-btn:active, .complete-btn:active{ transform: translateY(1px); }
+
+/* Accesibilidad: foco visible */
+:focus-visible{
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Mensajes accesibles (si quieres “toast”, quita visually-hidden dinámicamente en JS) */
+#feedback{
+  position: fixed;
+  bottom: 1rem; right: 1rem;
+  background: #111;
+  color: #fff;
+  padding: .6rem .9rem;
+  border-radius: .6rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.24);
+  opacity: 0;
+  transition: opacity .18s ease-in-out;
+}
+#feedback.show{ opacity: 1; }
+
+/* Utilidad para lectores de pantalla (no tocar) */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px,1px,1px,1px);
+  white-space: nowrap; border: 0; padding: 0; margin: -1px;
+}
+
+/* Respeto preferencias de movimiento */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; }
+}
