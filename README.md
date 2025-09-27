@@ -30,9 +30,7 @@ Funciona con **HTML/CSS/JS vanilla** y se abre con doble clic (no requiere servi
 
 ## 📦 Estructura del proyecto
 
-> Usa el árbol que corresponda según dónde esté este README.
-
-**
+> 
 PEC1/
 ├─ index.html
 ├─ style.css
@@ -41,7 +39,7 @@ PEC1/
 │  └─ demo.png
 ├─ LICENSE
 └─ README.md   ← este archivo
-**
+
 
 ---
 
