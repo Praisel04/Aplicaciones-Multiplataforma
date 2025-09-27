@@ -31,7 +31,7 @@ Funciona con **HTML/CSS/JS vanilla** y se abre con doble clic (no requiere servi
 ## 📸 Demo
 <p align="center">
   <!-- Sustituye esta ruta cuando tengas tu gif/captura -->
-  <img src="docs/demo.png" alt="Demo de la aplicación" width="720">
+  <img src="docs/demo1.png" alt="Demo de la aplicación" width="720">
 </p>
 
 ---
