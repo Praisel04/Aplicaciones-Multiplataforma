@@ -12,7 +12,6 @@ const state = {
     tasks: []
 };
 
-console.log(state);
 
 // Selecciona el nodo del contador
 const taskCountEl = document.getElementById('task-count');
