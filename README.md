@@ -38,7 +38,7 @@ PEC1/
 ├─ docs/
 │  └─ demo.png
 ├─ LICENSE
-└─ README.md ← este archivo
+└─ README.md
 
 ---
 
