@@ -30,8 +30,7 @@ Funciona con **HTML/CSS/JS vanilla** y se abre con doble clic (no requiere servi
 
 ## 📦 Estructura del proyecto
 
-> 
-PEC1/
+>PEC1/
 ├─ index.html
 ├─ style.css
 ├─ app.js
