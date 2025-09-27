@@ -44,7 +44,6 @@ PEC1/
 
 ## 📸 Demo
 <p align="center">
-  <!-- Sustituye esta ruta cuando tengas tu gif/captura -->
   <img src="PEC1/docs/demo1.png" alt="Demo de la aplicación" width="720">
 </p>
 
