@@ -40,6 +40,7 @@ PEC1/
 ├─ LICENSE
 └─ README.md
 
+```
 ---
 
 ## 📸 Demo
