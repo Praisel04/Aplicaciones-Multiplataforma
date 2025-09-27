@@ -101,4 +101,3 @@ npx serve .
 
 ---
 
-> Cuando marques **Edición** y **Filtros** como completados, actualiza la sección de “Requisitos cubiertos” arriba y añade una breve nota en este roadmap.
