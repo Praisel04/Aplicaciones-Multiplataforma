@@ -48,7 +48,7 @@ python -m http.server 8080
 
 # Node
 npx serve .
-
+```
 ---
 
 ## ✅ Estado actual (checklist)
