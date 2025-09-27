@@ -30,15 +30,15 @@ Funciona con **HTML/CSS/JS vanilla** y se abre con doble clic (no requiere servi
 
 ## 📦 Estructura del proyecto
 
->PEC1/
+```text
+PEC1/
 ├─ index.html
 ├─ style.css
 ├─ app.js
 ├─ docs/
 │  └─ demo.png
 ├─ LICENSE
-└─ README.md   ← este archivo
-
+└─ README.md ← este archivo
 
 ---
 
