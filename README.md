@@ -20,10 +20,11 @@ Funciona con **HTML/CSS/JS vanilla** y se abre con doble clic (no requiere servi
 ---
 
 ## 📓 Tabla de Contenidos
+- [Estructura del proyecto](#-estructura-del-proyecto)
 - [Demo](#-demo)
 - [Cómo ejecutar](#-cómo-ejecutar)
-- [Estructura del proyecto](#-estructura-del-proyecto)
-- [Requisitos cubiertos](#-requisitos-cubiertos)
+- [Estado actual](#estado-actual)
+- [Posibles mejoras](#posibles-mejoras-del-proyecto)
 - [Licencia](#-licencia)
 
 ---
@@ -65,7 +66,7 @@ npx serve .
 ```
 ---
 
-## ✅ Estado actual (checklist)
+## ✅ Estado actual
 
 - [x] Interfaz básica (input, botón **Add Task**, lista)
 - [x] Plantilla con `<template>` para cada `<li>`
@@ -81,7 +82,7 @@ npx serve .
 
 ---
 
-## 🎯 Puntos pendientes / Roadmap de la práctica
+## 🎯 Posibles mejoras del proyecto
 
 - [ ] **Edición inline** de tareas  
   Permitir editar el texto de una tarea (doble clic o botón “Editar”), con confirmación (Enter) y cancelación (Esc).  
