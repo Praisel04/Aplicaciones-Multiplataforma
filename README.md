@@ -23,8 +23,8 @@ Funciona con **HTML/CSS/JS vanilla** y se abre con doble clic (no requiere servi
 - [Estructura del proyecto](#-estructura-del-proyecto)
 - [Demo](#-demo)
 - [Cómo ejecutar](#-cómo-ejecutar)
-- [Estado actual](#estado-actual)
-- [Posibles mejoras](#posibles-mejoras-del-proyecto)
+- [Estado actual](#-estado-actual)
+- [Posibles mejoras](#-posibles-mejoras-del-proyecto)
 - [Licencia](#-licencia)
 
 ---
