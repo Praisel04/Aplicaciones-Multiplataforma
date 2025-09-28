@@ -115,6 +115,6 @@ npx serve .
   1–3 páginas: objetivo, requisitos cubiertos, decisiones técnicas (template, delegación, LocalStorage), accesibilidad, problemas/soluciones, mejoras futuras.
 
 ---
-
+## Licencia ©️
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
