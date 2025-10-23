@@ -1,0 +1,10 @@
+button:hover {
+  
+  transform: scale(1.05);
+}
+
+select:focus,
+input:focus {
+  border-color: #e50914;
+  outline: none;
+}
