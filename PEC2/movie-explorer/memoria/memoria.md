@@ -13,14 +13,21 @@
 
 ---
 
+### 👤 Autor
+**Nombre:** _Iván Seco Martín_  
+**Asignatura:** Diseño y despliegue de aplicaciones multiplataforma  
+**Fecha de entrega:** _2 de noviembre de 2025_
+**Fecha de inicio:** _21 de octubre de 2025_  
+**Repositorio GitHub:** [Enlace al repositorio](https://github.com/Praisel04/Aplicaciones-Multiplataforma/tree/main/PEC2/movie-explorer)
+
+---
+
 ## 🧭 Índice
 
 - [🧭 Índice](#-índice)
 - [🪄 Introducción](#-introducción)
 - [🎯 Objetivos del proyecto](#-objetivos-del-proyecto)
 - [🧱 Estructura del proyecto](#-estructura-del-proyecto)
-- [🔑 Obtención de la API Key](#-obtención-de-la-api-key)
-  - [🪙 Pasos para obtenerla:](#-pasos-para-obtenerla)
 - [⚙️ Desarrollo del proyecto](#️-desarrollo-del-proyecto)
   - [⚡ Configuración inicial con Vite](#-configuración-inicial-con-vite)
   - [🧩 Componentes principales](#-componentes-principales)
@@ -104,25 +111,6 @@ El proyecto se ha desarrollado con una serie de objetivos técnicos y pedagógic
     └─ package.json
 
 ---
-## 🔑 Obtención de la API Key
-
-Para utilizar los servicios de **The Movie Database (TMDB)** es necesario disponer de una **API Key personal**.
-
-### 🪙 Pasos para obtenerla:
-1. Acceder a la web oficial: [https://www.themoviedb.org/](https://www.themoviedb.org/).  
-2. Crear una cuenta gratuita o iniciar sesión si ya dispones de una.  
-3. Entrar en el apartado **"Configuración" → "API"** desde tu perfil.  
-4. Solicitar una nueva **API Key** (tipo “Developer”).  
-5. Copiar el valor generado (una cadena alfanumérica única).
-
-Una vez obtenida, edita el archivo `src/config.js` y añade tu clave en la constante `API_KEY`:
-
-```js
-// config.js
-export const API_KEY = "TU_API_KEY_AQUI";
-export const BASE_URL = "https://api.themoviedb.org/3";
-```
----
 
 ## ⚙️ Desarrollo del proyecto
 En este apartado se explicarán los detalles técnicos, diseos, metodologías y deciosiones tomadas e implementadas para el desarrollo del proyecto.
@@ -144,6 +132,8 @@ npm run dev
 ```
 La **estructura de carpetas** se organizó en torno a una arquitectura modular, separando componentes, páginas, contexto global y estilos.  
 Se utilizó un archivo **`config.js`** para almacenar la clave de la API de TMDB de forma centralizada y sencilla de mantener.
+
+_**La API-KEY viene vacia. Si usted dispone de una péguela en el archivo. En caso de que no disponga de una, sigua las instrucciones del README para obtener una.**_
 
 ---
 
@@ -315,12 +305,12 @@ El resultado final es una interfaz atractiva, futurista y coherente con la temá
 ## 🖼️ Capturas de pantalla
 
 
-- **Pantalla principal:** ![Home](memoria/img/image.png)
-- **Favoritos:** ![Favourites](memoria/img/image-5.png)
-- **Modal de detalles:** ![Modal](memoria/img/image-1.png)
-- **Búsqueda por título:** ![Titulo](memoria/img/image-2.png)
-- **Búsqueda por año:** ![Año](memoria/img/image-3.png)
-- **Búsqueda por género:** ![Genero](memoria/img/image-4.png)
+- **Pantalla principal:** ![Home](img/image.png)
+- **Favoritos:** ![Favourites](img/image-5.png)
+- **Modal de detalles:** ![Modal](img/image-1.png)
+- **Búsqueda por título:** ![Titulo](img/image-2.png)
+- **Búsqueda por año:** ![Año](img/image-3.png)
+- **Búsqueda por género:** ![Genero](img/image-4.png)
 ---
 
 ## 💡 Mejoras futuras

@@ -15,6 +15,16 @@ const Home = forwardRef((props, ref) => {
   const [totalPages, setTotalPages] = useState(1);
   const [isSearching, setIsSearching] = useState(false);
 
+  const [notification, setNotification] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleNotify = (message) => {
+    setNotification(message);
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 2000); // duración 2s
+  };
+
+
   // 🔹 Cargar populares y géneros al inicio
   useEffect(() => {
     loadPopularMovies();
@@ -72,20 +82,26 @@ const Home = forwardRef((props, ref) => {
 
     let url = "";
 
-    // 🎭 Caso: solo género (sin texto)
-    if (genre && !searchQuery.trim()) {
+    // 🎞️ Caso: solo año
+    if (year && !searchQuery.trim() && !genre) {
+      url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=es-ES&page=${page}&primary_release_year=${year}`;
+    }
+    // 🎭 Caso: solo género (con o sin año)
+    else if (genre && !searchQuery.trim()) {
       url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=es-ES&page=${page}&with_genres=${genre}`;
-      if (year) url += `&year=${year}`;
+      if (year) url += `&primary_release_year=${year}`;
     }
     // 🎬 Caso: búsqueda por texto
     else {
       url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=es-ES&page=${page}`;
       if (searchQuery) url += `&query=${encodeURIComponent(searchQuery)}`;
       if (year) url += `&year=${year}`;
+      if (genre) url += `&with_genres=${genre}`;
     }
 
     fetchMovies(url);
   };
+
 
   // 🔹 Cambiar página (funcional y sin errores)
   const handlePageChange = (direction) => {
@@ -143,13 +159,30 @@ const Home = forwardRef((props, ref) => {
           </button>
         </div>
       </form>
+      {showNotification && (
+        <div style={styles.toast}>
+          {notification}
+        </div>
+      )}
 
-      {/* Grid */}
-      <div style={styles.grid}>
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </div>
+
+      {/* Grid o mensaje */}
+      {movies.length === 0 ? (
+        <div style={styles.noResults}>
+          <p>No hay películas que mostrar 😢</p>
+          <button style={styles.homeButton} onClick={() => loadPopularMovies()}>
+            Volver a inicio
+          </button>
+        </div>
+      ) : (
+        <div style={styles.grid}>
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} onNotify={handleNotify} />
+
+          ))}
+        </div>
+      )}
+
 
       {/* Paginación */}
       <div style={styles.pagination}>
@@ -272,6 +305,43 @@ const styles = {
   pageInfo: {
     fontWeight: "bold",
   },
+  noResults: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    color: "white",
+    fontSize: "1.2rem",
+    minHeight: "60vh", // centra verticalmente
+  },
+  homeButton: {
+    marginTop: "1rem",
+    padding: "0.6rem 1.2rem",
+    borderRadius: "6px",
+    border: "none",
+    backgroundColor: "#e50914",
+    color: "white",
+    fontSize: "1rem",
+    cursor: "pointer",
+    transition: "background 0.2s ease, transform 0.1s ease",
+  },
+  toast: {
+    position: "fixed",
+    bottom: "30px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    backgroundColor: "rgba(92, 98, 184, 0.8)",
+    color: "rgba(255, 255, 255, 1)",
+    padding: "0.8rem 1.5rem",
+    borderRadius: "10px",
+    boxShadow: "0 0 10px rgba(0,0,0,0.3)",
+    fontWeight: "bold",
+    animation: "fadeInOut 2s ease",
+    zIndex: 1000,
+  },
+
+
 };
 
 export default Home;

@@ -28,7 +28,7 @@ function App() {
         <footer>
           © {new Date().getFullYear()} Created by Iván Seco Martín — Movie Explorer — Powered by TMDB API |
           <a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer"> TMDB </a> |
-          <a href="https://github.com/Praisel04/movie-explorer" target="_blank" rel="noreferrer"> GitHub </a>
+          <a href="https://github.com/Praisel04/Aplicaciones-Multiplataforma/tree/main/PEC2/movie-explorer" target="_blank" rel="noreferrer"> GitHub </a>
         </footer>
 
       </Router>
