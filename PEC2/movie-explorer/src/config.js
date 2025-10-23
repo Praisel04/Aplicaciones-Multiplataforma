@@ -1,2 +1,2 @@
-export const API_KEY = "2e3bc02ac607d24d79de150364048397"; 
+export const API_KEY = ""; // <-- Introduce aquí tu API KEY. Si no tienes una en el README está explicado como conseguir una de forma gratuita. 
 export const BASE_URL = "https://api.themoviedb.org/3";
