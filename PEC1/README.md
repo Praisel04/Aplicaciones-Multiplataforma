@@ -46,7 +46,7 @@ PEC1/
 
 ## 📸 Demo
 <p align="center">
-  <img src="PEC1/docs/demo1.png" alt="Demo de la aplicación" width="720">
+  <img src="docs/demo1.png" alt="Demo de la aplicación" width="720">
 </p>
 
 ---
